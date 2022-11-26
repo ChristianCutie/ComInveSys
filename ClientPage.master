@@ -1,0 +1,249 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="ClientPage.master.cs" Inherits="ClientPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <style type="text/css">
+        .sidebar #sidebarToggle::after {
+            font-weight: 900;
+            content: '\f104';
+            font-family: 'Font Awesome 5 Free';
+            margin-right: 0.1rem;
+        }
+
+        .sidebar #sidebarToggle:hover {
+            text-decoration: none;
+        }
+
+        .sidebar #sidebarToggle:focus {
+            outline: none;
+        }
+
+        .sidebar.toggled {
+            width: 0 !important;
+            overflow: hidden;
+        }
+
+            .sidebar.toggled #sidebarToggle::after {
+                content: '\f105';
+                font-family: 'Font Awesome 5 Free';
+                margin-left: 0.25rem;
+            }
+            #sidebar{
+                height: 2000px;
+            }
+    </style>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Provincial Government of Bulacan</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://www.vantagehunt.com/assets/images/vh/bulacan-province-logo.png" rel="shortcut icon" />
+    </head>
+<body style="background-color : white;">
+     <form id="form1" runat="server">
+          <!DOCTYPE html>
+    <html>
+    <head>
+         <title></title>
+        <!-- Choices.js-->
+        <link rel="stylesheet" href="../../vendor/choices.js/public/assets/styles/choices.min.css" />
+        <!-- Google fonts - Muli-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300,400,700" />
+        <!-- theme stylesheet-->
+        <link rel="stylesheet" href="../../css/style.default.css" />
+        <link href="../css/style.pink.css" rel="stylesheet" />
+        <!-- Custom stylesheet - for your changes-->
+        <link href="../../css/custom.css" rel="stylesheet" />
+        <!-- Favicon-->
+        </head>
+      <body>
+        <header class="header">
+            <nav style="background-color: #fff;" class="navbar navbar-expand-lg  z-index-10 shadow">
+                <div class="search-panel">
+                    <div class="search-inner d-flex align-items-center justify-content-center">
+                        <div class="close-btn d-flex align-items-center position-absolute top-0 end-0 me-4 mt-2 cursor-pointer">
+                            <span>Close </span>
+                            <svg class="svg-icon svg-icon-md svg-icon-heavy mt-1 ">
+                                <use xlink:href="#close-1"></use>
+                            </svg>
+                        </div>
+                        <div class="row w-100">
+                            <div class="col-lg-8 mx-auto">
+                                <div class="px-4" id="searchForm" action="#">
+                                    <div class="input-group position-relative flex-column flex-lg-row flex-nowrap">
+                                        <input class="form-control shadow-0 bg-none px-0 w-100" type="search" name="search" placeholder="What are you searching for..."/>
+                                        <button class="btn btn-link text-gray-600 px-0 text-decoration-none fw-bold cursor-pointer text-center" type="submit">Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid d-flex align-items-center justify-content-between py-1">
+                    <div class="navbar-header d-flex align-items-center">
+                           <img class="m-0" width="60" height="60" src="https://th.bing.com/th/id/OIP.vm90Q3dtu-a_raXr9oUiGgHaHa?pid=ImgDet&amp;rs=1" alt="See the source image"/>
+                        <a class="navbar-brand text-capitalize" href="Dashboard.aspx">
+                            <div class=" d-flex m-0">
+                            <div class="brand-text brand-big mx-2"><strong class=" text-dark">Provincial</strong> <strong class=" text-dark">Government of</strong> <strong class=" text-dark">Bulacan</strong></div>
+                            <div class="brand-text brand-sm"><strong class=" text-dark">P</strong><strong class=" text-dark">G</strong><strong class=" text-dark">B</strong></div>
+                                </div>
+                        </a>
+                          <button class="sidebar-toggle">
+                  <svg class="svg-icon svg-icon-sm svg-icon-heavy transform-none">
+                    <use xlink:href="#arrow-left-1"> </use>
+                  </svg>
+            </button>
+                    </div>
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a class="search-open nav-link px-0" href="#">
+                            <svg class="svg-icon svg-icon-xs svg-icon-heavy text-gray-700">
+                                <use xlink:href="#find-1"></use>
+                            </svg></a></li>
+                         <li class="list-inline-item dropdown px-lg-2">
+                             <a class="nav-link text-reset px-1 px-lg-0" id="navbarDropdownMenuLink1" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                                 <use xlink:href="#envelope-1"></use>
+                             </svg>
+                                 <span class="badge bg-dash-color-1"><asp:Label ID="notification" runat="server" /></span>
+                             </a>
+                                <ul style="height: 400px; overflow-x: auto; z-index:1000;" class="dropdown-menu dropdown-menu-end bg-white border-0 shadow" aria-labelledby="navbarDropdownMenuLink1">
+                                    <asp:Repeater ID="r1" runat="server">
+                            <ItemTemplate>
+                                    <li><a class="dropdown-item d-flex align-items-center" href="communication.aspx?username=<%#Eval("Department") %>>">
+                                        <div class="position-relative">
+                                            <%--<div class="availability-status bg-success"></div>--%>
+                                        </div>
+                                        <div class="ms-3">
+                                            <strong class="d-block"><%#Eval("Department") %></strong>
+                                            <span class="d-block text-xs"><%#gettwentycharacters(Eval("Description")) %></span>
+                                            <small class="d-block"><asp:Label ID="datetime" Text='<%#Eval("Date") %>' runat="server" /></small>
+                                        </div>
+                                    </a>
+                                    </li>
+                                </ItemTemplate>
+                        </asp:Repeater>
+                                </ul>
+                              <asp:Label Visible="false" ID="fakedtime" Text="" runat="server" />
+                        <li class="list-inline-item logout px-lg-2">
+                            <asp:LinkButton CssClass="nav-link text-sm text-reset px-1 px-lg-0 d-none d-sm-inline-block" id="lnklogout" Text="Logout" runat="server" OnClick="lnklogout_Click" OnClientClick="return confirm('Are you sure want to Logout?')" />
+                            <svg class="svg-icon svg-icon-xs svg-icon-heavy">
+                                <use xlink:href="#disable-1"></use>
+                            </svg></li>
+                    </ul>
+
+                </div>
+            </nav>
+        </header>
+        <!-- Sidebar Navigation-->
+        <nav class=" text-white" style="background-color: #496EDB;" id="sidebar">
+            <!-- Sidebar Header-->
+            <div class="sidebar-header d-flex align-items-center p-4">
+                <asp:Image ID="imguser" runat="server" CssClass="avatar shadow-0 img-fluid rounded-circle" />
+                <div class="ms-3 title">
+                    <h1 class="h6 mb-1"><asp:Label ID="lbluname" Text=" " runat="server" /> <asp:Label ID="lastname" Text=" " runat="server" /></h1>
+                    <p class="text-sm text-white mb-0 lh-1">Department: PVO</p>
+                </div>
+            </div>
+            <span class="text-uppercase text-white text-xs mx-3 px-2 heading mb-2">Main</span>
+             <hr class="sidebar-divider d-none d-md-block mt-0">
+            <ul class="list-unstyled">
+                <li class="sidebar-item "><asp:HyperLink ID="lnkdash" runat="server" CssClass="sidebar-link">
+                    <div class="svg-icon svg-icon-sm svg-icon-heavy text-white">
+                        <use class="fas fa-fw fa-tachometer-alt"></use>
+                    </div><span class="text-white">Dashboard </span></asp:HyperLink></li>
+
+                 <li class="sidebar-item "><asp:HyperLink ID="linkinventory" runat="server" CssClass="sidebar-link">
+                    <div class="svg-icon svg-icon-sm svg-icon-heavy text-white">
+                        <use class="fas fa-arrow-up-right-from-square"></use>
+                    </div><span class="text-white">Inventory </span></asp:HyperLink></li>
+
+                <li class="sidebar-item "><asp:HyperLink ID="linkproc" runat="server" CssClass="sidebar-link">
+                    <div class="svg-icon svg-icon-sm svg-icon-heavy text-white">
+                        <use class="fas fa-fw fa-arrows-rotate"></use>
+                    </div><span class="text-white">Procedure </span></asp:HyperLink></li>
+                <li class="sidebar-item "><asp:HyperLink ID="lnksendmsg" runat="server" CssClass="sidebar-link">
+                    <div class="svg-icon svg-icon-sm svg-icon-heavy text-white">
+                        <use class="fas fa-fw fa-envelope"></use>
+                    </div><span class="text-white">Message </span></asp:HyperLink></li>
+
+                <li class="sidebar-item"><a class="sidebar-link" href="#dropdowntroubleshoot" aria-expanded="true" data-bs-toggle="collapse"  >
+                    <div class="svg-icon svg-icon-sm svg-icon-heavy text-white">
+                        <use class="fas fa-fw fa-calendar"></use>
+                    </div><span class="text-white">Schedule </span></a>
+                    <ul class="collapse list-unstyled  " id="dropdowntroubleshoot">
+                        <li><a class="sidebar-link text-white" href="#">Condemn</a></li>
+                        <li><a class="sidebar-link text-white" href="Request_Repair.aspx" >Troubleshoot</a></li>
+                        <li><a class="sidebar-link text-white" href="Request.aspx" >PC Request</a></li>
+                    </ul>
+                </li>
+
+                <%--<li class="sidebar-item"><a class="sidebar-link" href="login.html">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+                        <use xlink:href="#disable-1"></use>
+                    </svg><span>Login page </span></a></li>--%>
+            </ul>
+            <%--<span class="text-uppercase text-gray-600 text-xs mx-3 px-2 heading mb-2">Extras</span>
+            <ul class="list-unstyled">
+                <li class="sidebar-item"><a class="sidebar-link" href="#">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+                        <use xlink:href="#imac-screen-1"></use>
+                    </svg><span>Demo </span></a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+                        <use xlink:href="#chart-1"></use>
+                    </svg><span>Demo </span></a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+                        <use xlink:href="#quality-1"></use>
+                    </svg><span>Demo </span></a></li>
+                <li class="sidebar-item"><a class="sidebar-link" href="#">
+                    <svg class="svg-icon svg-icon-sm svg-icon-heavy">
+                        <use xlink:href="#security-shield-1"></use>
+                    </svg><span>Demo </span></a></li>
+            </ul>--%>
+        </nav>
+        <div class="bg-white" id="con">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </body>
+         </html>
+   <script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../vendor/just-validate/js/just-validate.min.js"></script>
+    <script src="../../vendor/chart.js/Chart.min.js"></script>
+    <script src="../../vendor/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="../../js/charts-home.js"></script>
+    <!-- Main File-->
+    <script src="../../js/front.js"></script>
+          <script>
+              // ------------------------------------------------------- //
+              //   Inject SVG Sprite - 
+              //   see more here 
+              //   https://css-tricks.com/ajaxing-svg-sprite/
+              // ------------------------------------------------------ //
+              function injectSvgSprite(path) {
+
+                  var ajax = new XMLHttpRequest();
+                  ajax.open("GET", path, true);
+                  ajax.send();
+                  ajax.onload = function (e) {
+                      var div = document.createElement("div");
+                      div.className = 'd-none';
+                      div.innerHTML = ajax.responseText;
+                      document.body.insertBefore(div, document.body.childNodes[0]);
+                  }
+              }
+              // this is set to BootstrapTemple website as you cannot 
+              // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
+              // while using file:// protocol
+              // pls don't forget to change to your domain :)
+              injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
+          </script>
+                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
+                     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" 
+                     crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </form>
+</body>
+</html>

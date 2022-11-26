@@ -1,0 +1,52 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+body {
+    font-family: sans-serif;
+    background-color:#373737;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.custom-search{
+    position: relative;
+}
+.custom-search-box{
+    position: absolute;
+    bottom: 10em;
+   
+}
+/*swipe*/
+.swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+}
+
+.swipe-wrap {
+    overflow: hidden;
+    position: relative;
+}
+
+    .swipe-wrap > div {
+        float: left;
+        width: 100%;
+        position: relative;
+    }
+.img-thumbnail{
+    border: none;
+}
+h3{
+    color: white;
+}
+.custom-transition {
+    transition: .1s ease;
+}
+
+    .custom-transition:hover {
+        transform: scale(1.1);
+    }
+    li{
+        list-style: none;
+    }
+
+ 
+    
