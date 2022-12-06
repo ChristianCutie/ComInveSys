@@ -6,22 +6,22 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MovieFlix", "http://localhost:52037", "{7D55F589-99A6-4ECC-93C0-E1E996DC5677}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.8"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_52037"
-		Debug.AspNetCompiler.PhysicalPath = "My Web Sites\MovieFlix\"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\OneDrive\Documents\My Web Sites\MovieFlix\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52037\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
 		Debug.AspNetCompiler.FixedNames = "false"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/localhost_52037"
-		Release.AspNetCompiler.PhysicalPath = "My Web Sites\MovieFlix\"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\OneDrive\Documents\My Web Sites\MovieFlix\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52037\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		SlnRelativePath = "My Web Sites\MovieFlix\"
+		SlnRelativePath = "..\..\..\OneDrive\Documents\My Web Sites\MovieFlix\"
 	EndProjectSection
 EndProject
 Global
